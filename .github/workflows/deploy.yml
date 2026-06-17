@@ -28,7 +28,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
-          docker build --platform linux/amd64 -t $ECR_REGISTRY/testing-deploy:latest .
+          docker build --platform linux/arm64 -t $ECR_REGISTRY/testing-deploy:latest .
           docker push $ECR_REGISTRY/testing-deploy:latest
 
       - name: Deploy to ECS
